@@ -23,6 +23,7 @@
 ### 2. 配置 PHP 环境
 在phpStudy_pro里左侧网站里的localhost管理里面打开根目录
 
+
 把 `backend/` 放到 `phpStudy` 或 `XAMPP` 的站点目录下(phpstudy_pro\WWW\backemd)，确保可以通过 `http://localhost/goodsSystem/backend/` 访问。 localhost换成ipv4
 
 如果数据库账号密码不同，请修改 [backend/config/db.php](backend/config/db.php) 中的配置。
