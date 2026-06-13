@@ -1,4 +1,4 @@
-<img width="664" height="511" alt="image" src="https://github.com/user-attachments/assets/48e9a711-1f7d-47c9-99b0-a505c40eb142" /># 基于微信小程序的网上商城系统
+# 基于微信小程序的网上商城系统
 
 这是一个适合作为课程设计提交的完整商城示例，包含微信小程序端、PHP 接口、PHP 后台管理端和 MySQL 数据库脚本。
 
@@ -22,6 +22,7 @@
 
 ### 2. 配置 PHP 环境
 在phpStudy_pro里左侧网站里的localhost管理里面打开根目录
+<img width="664" height="511" alt="image" src="https://github.com/user-attachments/assets/48e9a711-1f7d-47c9-99b0-a505c40eb142" />
 
 
 把 `backend/` 放到 `phpStudy` 或 `XAMPP` 的站点目录下(phpstudy_pro\WWW\backemd)，确保可以通过 `http://localhost/goodsSystem/backend/` 访问。 localhost换成ipv4
