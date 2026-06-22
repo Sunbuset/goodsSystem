@@ -1,5 +1,5 @@
 const { request } = require('../../../utils/request');
-const { getCart, setCart } = require('../../../utils/storage');
+const { getUserInfo } = require('../../../utils/storage');
 
 Page({
   data: {
@@ -27,23 +27,24 @@ Page({
       return;
     }
 
-    const cart = getCart();
-    const index = cart.findIndex((item) => item.id === goods.id);
-    if (index >= 0) {
-      cart[index].quantity += this.data.quantity;
-    } else {
-      cart.push({
-        id: goods.id,
-        name: goods.name,
-        price: goods.price,
-        cover: goods.cover,
-        stock: goods.stock,
-        quantity: this.data.quantity,
-        checked: true
-      });
+    const userInfo = getUserInfo();
+    if (!userInfo || !userInfo.id) {
+      wx.showToast({ title: '请先登录', icon: 'none' });
+      return;
     }
-    setCart(cart);
-    wx.showToast({ title: '已加入购物车' });
+
+    request({
+      url: 'cart_save.php',
+      method: 'POST',
+      data: {
+        user_id: userInfo.id,
+        goods_id: goods.id,
+        quantity: this.data.quantity,
+        checked: 1
+      }
+    }).then(() => {
+      wx.showToast({ title: '已加入购物车' });
+    });
   },
 
   createOrder() {

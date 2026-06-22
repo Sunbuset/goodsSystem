@@ -1,7 +1,8 @@
 <view class="page login-page">
   <view class="card login-card">
-    <image class="avatar" src="{{avatarUrl || 'https://picsum.photos/seed/avatar/200/200'}}"></image>
-    <input class="name-input" placeholder="请输入昵称" value="{{nickname}}" bindinput="onNicknameInput" />
-    <button class="btn-primary" bindtap="chooseProfile">微信授权登录</button>
+    <view class="title">账号密码登录</view>
+    <input class="name-input" placeholder="请输入账号" value="{{username}}" bindinput="onUsernameInput" />
+    <input class="name-input" password placeholder="请输入密码" value="{{password}}" bindinput="onPasswordInput" />
+    <button class="btn-primary" bindtap="login">登录</button>
   </view>
 </view>

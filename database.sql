@@ -2,6 +2,7 @@ CREATE DATABASE IF NOT EXISTS `goods_system` DEFAULT CHARACTER SET utf8mb4 COLLA
 USE `goods_system`;
 
 DROP TABLE IF EXISTS `orders`;
+DROP TABLE IF EXISTS `cart`;
 DROP TABLE IF EXISTS `goods`;
 DROP TABLE IF EXISTS `user`;
 DROP TABLE IF EXISTS `admin`;
@@ -17,12 +18,29 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `user` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `nickname` VARCHAR(100) NOT NULL,
   `avatar` VARCHAR(255) DEFAULT NULL,
   `openid` VARCHAR(100) NOT NULL,
   `create_time` DATETIME NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_username` (`username`),
   UNIQUE KEY `uk_openid` (`openid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `cart` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` INT UNSIGNED NOT NULL,
+  `goods_id` INT UNSIGNED NOT NULL,
+  `quantity` INT NOT NULL DEFAULT 1,
+  `checked` TINYINT NOT NULL DEFAULT 1,
+  `create_time` DATETIME NOT NULL,
+  `update_time` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_user_goods` (`user_id`, `goods_id`),
+  KEY `idx_user_id` (`user_id`),
+  KEY `idx_goods_id` (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `category` (

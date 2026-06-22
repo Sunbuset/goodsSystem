@@ -168,10 +168,11 @@ $users = $pdo->query('SELECT * FROM user ORDER BY id DESC')->fetchAll();
       <div class="card">
         <h3>用户列表</h3>
         <table>
-          <tr><th>ID</th><th>昵称</th><th>OpenID</th><th>操作</th></tr>
+          <tr><th>ID</th><th>账号</th><th>昵称</th><th>OpenID</th><th>操作</th></tr>
           <?php foreach ($users as $item): ?>
             <tr>
               <td><?php echo (int) $item['id']; ?></td>
+              <td><?php echo htmlspecialchars((string) ($item['username'] ?? ''), ENT_QUOTES, 'UTF-8'); ?></td>
               <td><?php echo htmlspecialchars($item['nickname'], ENT_QUOTES, 'UTF-8'); ?></td>
               <td><?php echo htmlspecialchars($item['openid'], ENT_QUOTES, 'UTF-8'); ?></td>
               <td>
