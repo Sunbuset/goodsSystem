@@ -4,6 +4,7 @@
     <view class="mine-name">{{userInfo.nickname}}</view>
     <view class="muted">openid: {{userInfo.openid}}</view>
     <navigator url="/pages/orders/list/list" class="menu-link">我的订单</navigator>
+    <button class="btn-ghost logout-btn" bindtap="logout">退出登录</button>
   </view>
 
   <view class="card mine-card" wx:else>

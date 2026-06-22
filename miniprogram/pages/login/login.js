@@ -41,6 +41,15 @@ Page({
         password
       }
     }).then((res) => {
+      if (isRegister) {
+        wx.showToast({ title: '注册成功，请登录', icon: 'none' });
+        this.setData({
+          mode: 'login',
+          password: ''
+        });
+        return;
+      }
+
       setUserInfo(res.data.user);
       wx.showToast({ title: successTitle });
       wx.navigateBack({ delta: 1 });

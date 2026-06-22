@@ -20,3 +20,7 @@
   margin-top: 24rpx;
   color: #1677ff;
 }
+
+.logout-btn {
+  margin-top: 24rpx;
+}
