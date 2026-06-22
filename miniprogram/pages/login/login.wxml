@@ -1,8 +1,9 @@
 <view class="page login-page">
   <view class="card login-card">
-    <view class="title">账号密码登录</view>
+    <view class="title">{{mode === 'login' ? '账号密码登录' : '账号注册'}}</view>
     <input class="name-input" placeholder="请输入账号" value="{{username}}" bindinput="onUsernameInput" />
     <input class="name-input" password placeholder="请输入密码" value="{{password}}" bindinput="onPasswordInput" />
-    <button class="btn-primary" bindtap="login">登录</button>
+    <button class="btn-primary" bindtap="submit">{{mode === 'login' ? '登录' : '注册'}}</button>
+    <button class="btn-secondary" bindtap="switchMode">{{mode === 'login' ? '没有账号，去注册' : '已有账号，去登录'}}</button>
   </view>
 </view>

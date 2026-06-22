@@ -23,3 +23,10 @@
   margin-bottom: 24rpx;
   text-align: left;
 }
+
+.btn-secondary {
+  margin-top: 20rpx;
+  background: transparent;
+  color: #1677ff;
+  border: 1rpx solid #dbeafe;
+}

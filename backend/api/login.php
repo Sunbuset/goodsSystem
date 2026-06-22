@@ -18,26 +18,8 @@ try {
     $stmt->execute(['username' => $username]);
     $user = $stmt->fetch();
 
-    if (!$user) {
-        $insert = $pdo->prepare('INSERT INTO user (username, password, nickname, avatar, openid, create_time) VALUES (:username, :password, :nickname, :avatar, :openid, :create_time)');
-        $insert->execute([
-            'username' => $username,
-            'password' => $password,
-            'nickname' => $username,
-            'avatar' => '',
-            'openid' => 'account_' . sha1($username),
-            'create_time' => now_string(),
-        ]);
-        $user = [
-            'id' => (int) $pdo->lastInsertId(),
-            'username' => $username,
-            'password' => $password,
-            'nickname' => $username,
-            'avatar' => '',
-            'openid' => 'account_' . sha1($username),
-        ];
-    } elseif ((string) ($user['password'] ?? '') !== $password) {
-        json_fail('账号或密码错误');
+    if (!$user || (string) ($user['password'] ?? '') !== $password) {
+        json_fail('账号或密码错误，请重试');
     }
 
     unset($user['password']);

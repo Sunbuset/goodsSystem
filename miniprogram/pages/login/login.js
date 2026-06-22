@@ -3,6 +3,7 @@ const { setUserInfo } = require('../../utils/storage');
 
 Page({
   data: {
+    mode: 'login',
     username: '',
     password: ''
   },
@@ -15,15 +16,25 @@ Page({
     this.setData({ password: e.detail.value });
   },
 
-  login() {
+  switchMode() {
+    this.setData({
+      mode: this.data.mode === 'login' ? 'register' : 'login'
+    });
+  },
+
+  submit() {
     const { username, password } = this.data;
     if (!username || !password) {
       wx.showToast({ title: '请输入账号和密码', icon: 'none' });
       return;
     }
 
+    const isRegister = this.data.mode === 'register';
+    const url = isRegister ? 'register.php' : 'login.php';
+    const successTitle = isRegister ? '注册成功' : '登录成功';
+
     request({
-      url: 'login.php',
+      url,
       method: 'POST',
       data: {
         username,
@@ -31,7 +42,7 @@ Page({
       }
     }).then((res) => {
       setUserInfo(res.data.user);
-      wx.showToast({ title: '登录成功' });
+      wx.showToast({ title: successTitle });
       wx.navigateBack({ delta: 1 });
     });
   }
