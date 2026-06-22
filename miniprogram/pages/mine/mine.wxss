@@ -7,18 +7,24 @@
   height: 160rpx;
   border-radius: 50%;
   margin: 0 auto 20rpx;
+  border: 6rpx solid #ffffff;
+  box-shadow: 0 12rpx 28rpx rgba(15, 23, 42, 0.12);
 }
 
 .mine-name {
   font-size: 34rpx;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 12rpx;
 }
 
 .menu-link {
   display: block;
   margin-top: 24rpx;
-  color: #1677ff;
+  color: #0f766e;
+  background: #f0fdfa;
+  border: 1rpx solid #99f6e4;
+  border-radius: 999rpx;
+  padding: 14rpx 20rpx;
 }
 
 .logout-btn {

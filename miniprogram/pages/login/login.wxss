@@ -2,22 +2,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 80rpx;
 }
 
 .login-card {
   width: 100%;
   text-align: center;
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .title {
   font-size: 36rpx;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 32rpx;
-  color: #111827;
+  color: #0f172a;
 }
 
 .name-input {
-  background: #f3f4f6;
+  background: #ffffff;
+  border: 1rpx solid #cbd5e1;
   border-radius: 999rpx;
   padding: 18rpx 24rpx;
   margin-bottom: 24rpx;
@@ -26,7 +29,7 @@
 
 .btn-secondary {
   margin-top: 20rpx;
-  background: transparent;
-  color: #1677ff;
-  border: 1rpx solid #dbeafe;
+  background: #ffffff;
+  color: #0f766e;
+  border: 1rpx solid #14b8a6;
 }

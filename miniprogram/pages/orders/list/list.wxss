@@ -1,11 +1,13 @@
 .order-item {
-  padding: 20rpx 0;
-  border-top: 1rpx solid #e5e7eb;
+  padding: 20rpx;
+  border: 1rpx solid #e2e8f0;
+  border-radius: 18rpx;
+  margin-top: 14rpx;
+  background: #ffffff;
 }
 
 .order-item:first-of-type {
-  border-top: 0;
-  padding-top: 0;
+  margin-top: 0;
 }
 
 .order-top {
@@ -15,10 +17,14 @@
 }
 
 .status {
-  color: #1677ff;
+  color: #0f766e;
+  background: #f0fdfa;
+  border: 1rpx solid #99f6e4;
+  border-radius: 999rpx;
+  padding: 4rpx 14rpx;
 }
 
 .empty-tip {
   text-align: center;
-  padding: 24rpx 0;
+  padding: 32rpx 0;
 }

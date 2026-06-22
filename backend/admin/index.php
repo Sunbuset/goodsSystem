@@ -69,19 +69,35 @@ $users = $pdo->query('SELECT * FROM user ORDER BY id DESC')->fetchAll();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>商城后台管理</title>
   <style>
-    body{font-family:Arial;background:#f5f7fb;margin:0;color:#1f2937}
+    :root{--bg:#f8fafc;--line:#dbe4ef;--line-soft:#eaf0f7;--text:#0f172a;--muted:#64748b;--primary:#ea580c;--primary-2:#f97316;--danger:#dc2626;--success:#059669}
+    *{box-sizing:border-box}
+    body{font-family:"Segoe UI",PingFang SC,"Microsoft YaHei",sans-serif;background:radial-gradient(circle at 18% -5%,#ffedd5 0,#fff7ed 28%,transparent 29%),radial-gradient(circle at 102% 10%,#cffafe 0,#ecfeff 34%,transparent 35%),var(--bg);margin:0;color:var(--text)}
     .wrap{display:flex;min-height:100vh}
-    .side{width:220px;background:#111827;color:#fff;padding:24px;box-sizing:border-box}
-    .side a{display:block;color:#cbd5e1;text-decoration:none;padding:10px 0}
-    .main{flex:1;padding:24px}
-    .card{background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-    table{width:100%;border-collapse:collapse}
-    th,td{border-bottom:1px solid #e5e7eb;padding:10px;text-align:left;vertical-align:top}
-    input,textarea,select,button{padding:8px;box-sizing:border-box}
-    input,textarea,select{width:100%;margin-top:6px}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .actions button{margin-right:8px}
-    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+    .side{width:240px;background:linear-gradient(180deg,#0f172a,#1e293b);color:#fff;padding:30px 22px;box-shadow:14px 0 38px rgba(15,23,42,.25)}
+    .side h2{margin:0 0 18px;font-size:24px;letter-spacing:1px}
+    .side a{display:block;color:#cbd5e1;text-decoration:none;padding:11px 14px;margin-bottom:8px;border-radius:12px;transition:background .2s,color .2s,transform .15s}
+    .side a:hover{background:rgba(148,163,184,.18);color:#fff;transform:translateX(2px)}
+    .main{flex:1;padding:28px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;padding:20px 24px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.95);backdrop-filter:blur(8px);border-radius:18px;box-shadow:0 16px 34px rgba(15,23,42,.08)}
+    .topbar h1{margin:0;font-size:30px;letter-spacing:1px}
+    .topbar div{color:var(--muted);font-size:14px}
+    .card{background:rgba(255,255,255,.9);border-radius:18px;padding:22px;margin-bottom:22px;border:1px solid rgba(255,255,255,.96);box-shadow:0 16px 38px rgba(15,23,42,.08)}
+    .card h3{margin:0 0 14px;font-size:22px}
+    table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fff}
+    th,td{border-bottom:1px solid var(--line-soft);padding:12px 10px;text-align:left;vertical-align:top}
+    th{background:#fff7ed;color:#7c2d12;font-weight:600}
+    tr:last-child td{border-bottom:0}
+    input,textarea,select,button{padding:9px 10px}
+    input,textarea,select{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:10px;font-size:14px;outline:0;transition:border-color .2s,box-shadow .2s;background:#fff}
+    input:focus,textarea:focus,select:focus{border-color:#14b8a6;box-shadow:0 0 0 3px rgba(20,184,166,.14)}
+    button{border:0;border-radius:10px;background:linear-gradient(120deg,var(--primary),var(--primary-2));color:#fff;font-weight:600;cursor:pointer;box-shadow:0 10px 22px rgba(249,115,22,.25);transition:transform .14s ease,box-shadow .2s ease}
+    button:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(249,115,22,.34)}
+    button:active{transform:translateY(0)}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .actions button{margin-right:8px;background:linear-gradient(120deg,#ef4444,var(--danger));box-shadow:0 8px 18px rgba(239,68,68,.24)}
+    .actions button:hover{box-shadow:0 12px 24px rgba(239,68,68,.32)}
+    form button[type="submit"]{margin-top:10px}
+    @media (max-width:960px){.wrap{flex-direction:column}.side{width:100%;box-shadow:none}.main{padding:16px}.topbar{flex-direction:column;align-items:flex-start}.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
