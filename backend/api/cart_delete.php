@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../lib/response.php';
+require_once __DIR__ . '/../lib/helpers.php';
 
 try {
     $userId = (int) request_data('user_id', 0);
